@@ -1,7 +1,8 @@
 #include <stdlib.h>
+#include <string.h>
 #include "dog.h"
 
-int _strlen(char *s)
+int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 
 /**
@@ -18,8 +19,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	if (name != NULL && owner != NULL)
 	{
-		name_l = strlen(name) + 1;
-		own_l = strlen(owner) + 1;
+		name_l = _strlen(name) + 1;
+		own_l = _strlen(owner) + 1;
 		max_dog = malloc(sizeof(dog_t));
 
 		if (max_dog == NULL)
@@ -47,6 +48,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	return (max_dog);
+}
 
 /**
  * _strlen - Returns the length of a string
@@ -54,7 +56,7 @@ dog_t *new_dog(char *name, float age, char *owner)
  * Return: String length
  */
 int _strlen(char *s)
-
+{
 	int c = 0;
 
 	for (; *s != '\0'; s++)
@@ -63,6 +65,7 @@ int _strlen(char *s)
 	}
 
 	return (c);
+}
 
 /**
  * _strcpy - Copy a string
@@ -71,7 +74,7 @@ int _strlen(char *s)
  * Return: the pointer to dest
  */
 char *_strcpy(char *dest, char *src)
-
+{
 	int i;
 
 	for (i = 0; src[i] != '\0'; i++)
